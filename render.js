@@ -5,7 +5,9 @@
 (function () {
   const d = window.portfolioData;
   if (!d) {
-    console.error("portfolioData not found — make sure data.js is loaded before render.js");
+    console.error(
+      "portfolioData not found — make sure data.js is loaded before render.js",
+    );
     return;
   }
 
@@ -26,7 +28,7 @@
     const years = Math.max(0, (now - start) / msPerYear);
     return {
       decimal: years.toFixed(1), // e.g. "7.4"
-      rounded: Math.round(years) // e.g. 7
+      rounded: Math.round(years), // e.g. 7
     };
   }
   const experience = calcExperience(d.config.experienceStartDate);
@@ -38,22 +40,24 @@
     esc(
       String(str)
         .replace(/\{\{years\}\}/g, experience.decimal)
-        .replace(/\{\{yearsInt\}\}/g, experience.rounded)
+        .replace(/\{\{yearsInt\}\}/g, experience.rounded),
     );
 
   // ---------- Identity ----------
-  document.querySelectorAll("[data-bind='identity.handle']").forEach(
-    (el) => (el.textContent = d.identity.handle)
-  );
+  document
+    .querySelectorAll("[data-bind='identity.handle']")
+    .forEach((el) => (el.textContent = d.identity.handle));
 
   // ---------- Hero ----------
   const hero = d.hero;
   document.getElementById("hero-terminal-line").textContent = hero.terminalLine;
+  document.getElementById("hero-terminal-output").textContent =
+    hero.terminalOutput;
   document.getElementById("hero-h1").innerHTML =
     `${t(hero.headlineLine1)}<br><span class="line2">${t(hero.headlineLine2)}</span><br>` +
     t(hero.headlineAccent).replace(
       /(now expanding into Flutter\.?)/i,
-      '<span class="accent">$1</span>'
+      '<span class="accent">$1</span>',
     );
   document.getElementById("hero-sub").textContent = t(hero.subtext);
 
@@ -64,7 +68,7 @@
       <div>
         <div class="k">${esc(s.label)}</div>
         <div class="v">${t(s.value)}</div>
-      </div>`
+      </div>`,
     )
     .join("");
 
@@ -89,7 +93,7 @@
           <p>${esc(e.description)}</p>
           <div class="epoch-tags">${e.tags.map((t) => `<span>${esc(t)}</span>`).join("")}</div>
         </div>
-      </div>`
+      </div>`,
     )
     .join("");
 
@@ -102,7 +106,7 @@
         <div class="icon-label">${esc(s.label)}</div>
         <h3>${esc(s.title)}</h3>
         <div class="skill-list">${s.items.map((i) => `<span>${esc(i)}</span>`).join("")}</div>
-      </div>`
+      </div>`,
     )
     .join("");
 
@@ -120,7 +124,8 @@
         <div class="project-metrics">
           ${p.metrics
             .map(
-              (m) => `<div class="metric-row"><span class="k">${esc(m.label)}</span><span class="v">${esc(m.value)}</span></div>`
+              (m) =>
+                `<div class="metric-row"><span class="k">${esc(m.label)}</span><span class="v">${esc(m.value)}</span></div>`,
             )
             .join("")}
           <a href="${esc(p.link)}" class="project-link">View writeup →</a>
@@ -129,7 +134,9 @@
 
   const companyProjects = d.projects.filter((p) => p.type === "Company");
   const personalProjects = d.projects.filter((p) => p.type === "Personal");
-  const otherProjects = d.projects.filter((p) => p.type !== "Company" && p.type !== "Personal");
+  const otherProjects = d.projects.filter(
+    (p) => p.type !== "Company" && p.type !== "Personal",
+  );
 
   const projectsList = document.getElementById("projects-list");
   let projectsHtml = "";
@@ -168,7 +175,7 @@
     if (!c.formEndpoint) {
       ev.preventDefault();
       alert(
-        "This form isn't wired up yet. Set contact.formEndpoint in data.js (e.g. a Formspree URL) to start receiving messages."
+        "This form isn't wired up yet. Set contact.formEndpoint in data.js (e.g. a Formspree URL) to start receiving messages.",
       );
     }
     // If formEndpoint is set, the form's action/method (set below) handle the real submit.
