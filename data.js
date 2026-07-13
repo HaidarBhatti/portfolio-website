@@ -5,7 +5,7 @@
   ================================================================
 */
 
-const portfolioData = {
+window.portfolioData = {
   // ---------------- Auto-calculated experience ----------------
   // The site calculates your total experience from this date, live,
   // so you never have to manually update "X years" anywhere again.
