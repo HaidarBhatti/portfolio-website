@@ -23,7 +23,7 @@ window.portfolioData = {
 
   // ---------------- Hero section ----------------
   hero: {
-    terminalLine: "git log -1 --pretty=%an",
+    terminalLine: "whoami",
     terminalOutput: "Haidar Irfan",
     headlineLine1: "Software engineer,",
     headlineLine2: "{{yearsInt}} years of iOS focus —",
