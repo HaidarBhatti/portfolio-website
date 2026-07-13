@@ -56,7 +56,7 @@
   document.getElementById("hero-h1").innerHTML =
     `${t(hero.headlineLine1)}<br><span class="line2">${t(hero.headlineLine2)}</span><br>` +
     t(hero.headlineAccent).replace(
-      /(now expanding into Flutter\.?)/i,
+      /(AI engineer\.?)/i,
       '<span class="accent">$1</span>',
     );
   document.getElementById("hero-sub").textContent = t(hero.subtext);
@@ -71,6 +71,25 @@
       </div>`,
     )
     .join("");
+
+  const roadmapEl = document.getElementById("hero-roadmap");
+  if (roadmapEl && hero.roadmap) {
+    roadmapEl.innerHTML = hero.roadmap
+      .map((step, i) => {
+        const isLast = i === hero.roadmap.length - 1;
+        const stepHtml = `
+          <div class="roadmap-step roadmap-${step.state}">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-label">${esc(step.label)}</div>
+            <div class="roadmap-note">${esc(step.note)}</div>
+          </div>`;
+        const lineHtml = isLast
+          ? ""
+          : `<div class="roadmap-line roadmap-line-${step.state}"></div>`;
+        return stepHtml + lineHtml;
+      })
+      .join("");
+  }
 
   const heroCta = document.getElementById("hero-cta");
   heroCta.innerHTML = `
@@ -98,8 +117,12 @@
     .join("");
 
   // ---------- Skills ----------
+  document.getElementById("skills-intro").textContent = t(
+    d.skillsSection.intro,
+  );
+
   const skillsGrid = document.getElementById("skills-grid");
-  skillsGrid.innerHTML = d.skills
+  skillsGrid.innerHTML = d.skillsSection.categories
     .map(
       (s) => `
       <div class="skill-card">
@@ -128,7 +151,7 @@
                 `<div class="metric-row"><span class="k">${esc(m.label)}</span><span class="v">${esc(m.value)}</span></div>`,
             )
             .join("")}
-          <a href="${esc(p.link)}" class="project-link">View writeup →</a>
+          <a href="${esc(p.link)}" class="project-link" target="_blank" rel="noopener noreferrer">View writeup →</a>
         </div>
       </div>`;
 
@@ -165,8 +188,9 @@
   document.getElementById("contact-body").textContent = c.body;
   document.getElementById("contact-info").innerHTML = `
     <div class="row"><span class="k">Email</span><span class="v"><a href="mailto:${esc(c.email)}">${esc(c.email)}</a></span></div>
-    <div class="row"><span class="k">GitHub</span><span class="v"><a href="${esc(c.github.href)}">${esc(c.github.label)}</a></span></div>
-    <div class="row"><span class="k">LinkedIn</span><span class="v"><a href="${esc(c.linkedin.href)}">${esc(c.linkedin.label)}</a></span></div>
+    <div class="row"><span class="k">GitHub</span><span class="v"><a href="${esc(c.github.href)}" target="_blank" rel="noopener noreferrer">${esc(c.github.label)}</a></span></div>
+    <div class="row"><span class="k">LinkedIn</span><span class="v"><a href="${esc(c.linkedin.href)}" target="_blank" rel="noopener noreferrer">${esc(c.linkedin.label)}</a></span></div>
+    <div class="row"><span class="k">X</span><span class="v"><a href="${esc(c.x.href)}" target="_blank" rel="noopener noreferrer">${esc(c.x.label)}</a></span></div>
     <div class="row"><span class="k">Location</span><span class="v">${esc(c.location)}</span></div>
   `;
 
@@ -188,6 +212,9 @@
   // ---------- Footer ----------
   document.getElementById("footer-copyright").textContent = d.footer.copyright;
   document.getElementById("footer-socials").innerHTML = d.footer.socials
-    .map((s) => `<a href="${esc(s.href)}">${esc(s.label)}</a>`)
+    .map(
+      (s) =>
+        `<a href="${esc(s.href)}" target="_blank" rel="noopener noreferrer">${esc(s.label)}</a>`,
+    )
     .join("");
 })();

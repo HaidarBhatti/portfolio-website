@@ -23,13 +23,28 @@ window.portfolioData = {
 
   // ---------------- Hero section ----------------
   hero: {
-    terminalLine: "whoami",
+    terminalLine: "git log -1 --pretty=%an",
     terminalOutput: "Haidar Irfan",
-    headlineLine1: "iOS engineer,",
-    headlineLine2: "{{yearsInt}} years deep —",
-    headlineAccent: "now expanding into Flutter.",
+    headlineLine1: "Software engineer,",
+    headlineLine2: "{{yearsInt}} years of iOS focus —",
+    headlineAccent: "next stop, AI engineer.",
     subtext:
-      "{{yearsInt}} years building native iOS apps with Swift, UIKit, and SwiftUI. Currently working remote as an iOS developer for a company based in Riyadh, while building my own products in Flutter, React, and Firebase on the side.",
+      "{{yearsInt}} years building native iOS apps with Swift, UIKit, and SwiftUI. Currently working remote as an iOS developer for a company based in Riyadh, while building my own Flutter products on the side — the hustle that's steering me toward AI engineering next.",
+    // Career roadmap shown as a step tracker in the hero.
+    // state: "complete" | "current" | "next"
+    roadmap: [
+      {
+        label: "Software Engineer",
+        note: "Android, Spring Boot & Flutter foundations",
+        state: "complete",
+      },
+      {
+        label: "iOS Engineer",
+        note: "Circl Online — plus my own Flutter apps",
+        state: "current",
+      },
+      { label: "AI Engineer", note: "Next stop", state: "next" },
+    ],
     stats: [
       { label: "iOS experience", value: "{{years}} yrs" },
       { label: "Current role", value: "Remote iOS Dev · Riyadh" },
@@ -41,105 +56,128 @@ window.portfolioData = {
 
   // ---------------- About intro ----------------
   about: {
-    heading: "{{yearsInt}} years native on iOS. Now building cross-platform.",
-    body: "I've spent {{years}} years as an iOS developer, shipping production apps with Swift, UIKit, and SwiftUI across multiple companies. Four months ago I picked up Flutter and used it to build my own app end to end — the mobile app itself, an admin panel, and a companion website — to prove I could move fast outside the native ecosystem I know best.",
+    heading:
+      "Android roots, {{yearsInt}} years of native iOS focus, Flutter in motion — AI engineer next.",
+    body: "I started as a self-taught Android developer during my final year project — building the app in Java with a Spring Boot backend — while also taking on a freelance Flutter client on Fiverr in parallel. That early mix of Android, backend, and cross-platform work gave me range before I found my focus in native iOS, where I've spent most of the years since shipping production Swift, UIKit, and SwiftUI apps across multiple companies. Today, alongside my role at Circl Online, I channel that same range into my own ventures — building Flutter-based products end to end, from app to admin panel to website, to solve real problems for real people. With AI reshaping how software gets built, I'm now turning that same range toward AI engineering — not as a pivot away from mobile, but as the next tool in the same toolbox.",
   },
 
   // ---------------- Work experience (renders as the "epoch timeline") ----------------
-  // Add or remove entries freely — order shown = order listed here.
-  // "current: true" adds an "epoch NN · current" tag to the most recent one.
+  // Ordered MOST RECENT FIRST — that's the order it displays in, top to bottom.
+  // "current: true" adds an "epoch NN · current" tag to that entry.
   experience: [
     {
-      year: "2019",
-      epoch: "epoch 01",
-      title: "iOS Developer",
-      company: "Final year project → first role", // TODO: replace with real company name once employed
+      year: "Sep 2024 – Present",
+      epoch: "epoch 05",
+      current: true,
+      title: "Senior iOS Developer",
+      company: "Circl Online · Remote (Riyadh-based team)",
       description:
-        "Started building iOS apps with Swift and UIKit during my final year university project, then carried that into my first professional iOS role.",
-      tags: ["Swift", "UIKit", "Auto Layout"],
+        "Building and maintaining iOS features remotely for a team based in Riyadh, using Swift and SwiftUI. Collaborate closely with backend engineers to build and update APIs, and work with the UI/UX team to ship seamless, high-quality user experiences.",
+      tags: ["Swift", "SwiftUI", "UIKit", "REST APIs"],
     },
     {
-      year: "2021",
+      year: "Apr 2022 – Sep 2024",
+      epoch: "epoch 04",
+      title: "iOS App Developer",
+      company: "OnyxTec · Onsite, Lahore, Pakistan",
+      description:
+        "Served as the sole iOS developer, designing, developing, and maintaining multiple iOS applications with Swift and UIKit — including building a news app from scratch. Worked closely with design, backend, and Android teams on shared APIs, and managed international clients directly from requirements through delivery.",
+      tags: ["Swift", "UIKit", "API Integration", "Client management"],
+    },
+    {
+      year: "Oct 2021 – Apr 2022",
+      epoch: "epoch 03",
+      title: "iOS App Developer",
+      company: "Techificent · Onsite, Lahore, Pakistan",
+      description:
+        "Went deep on API implementations and the networking layer at Techificent, working alongside a strong team of senior iOS developers who sharpened how I structure and consume network code. That mentorship shaped habits — clean networking layers, careful error handling, API contracts done right — that I still carry into every project today.",
+      tags: ["Swift", "UIKit", "API Integration", "Networking"],
+    },
+    {
+      year: "Sep 2020 – Oct 2021",
       epoch: "epoch 02",
       title: "iOS Developer",
-      company: "Company B", // TODO: replace with real company name
+      company: "Mobizion · Onsite, Daska, Sialkot, Pakistan",
       description:
-        "Took ownership of larger app modules end to end — architecture, networking layer, and App Store releases. Started adopting SwiftUI for new screens alongside the existing UIKit codebase.",
-      tags: ["Swift", "SwiftUI", "Combine", "REST APIs"],
+        "Joined as an iOS intern and was promoted to iOS developer after building my first professional apps with Swift, UIKit, and SwiftUI. Started with frontend/UI implementation and grew into building new apps from the ground up, earning a full-time offer based on performance.",
+      tags: ["Swift", "UIKit", "SwiftUI"],
     },
     {
-      year: "2023",
-      epoch: "epoch 03",
-      title: "Senior iOS Developer",
-      company: "Company C", // TODO: replace with real company name
+      year: "2019 – Sep 2020",
+      epoch: "epoch 01",
+      title:
+        "Android Developer (Final Year Project) & Freelance Flutter Developer",
+      company: "University of Gujrat, Pakistan · Freelance (Fiverr)",
       description:
-        "Led iOS delivery on a team project, working across UIKit and SwiftUI, mentoring on architecture decisions, and owning releases through to the App Store.",
-      tags: ["Swift", "SwiftUI", "UIKit", "Core Data"],
-    },
-    {
-      year: "2026",
-      epoch: "epoch 04",
-      current: true,
-      title: "iOS Developer, learning Flutter",
-      company: "Personal project",
-      description:
-        "Spent the last 4 months learning Flutter by building a full product myself: a mobile app, its admin panel, and a companion marketing website backed by Firebase — my first cross-platform build.",
-      tags: ["Flutter", "Dart", "Firebase", "ReactJS"],
+        "Built my final year project as an Android app in Java, paired with a Java Spring Boot backend — my first taste of shipping a full product end to end. In parallel, I took on a Flutter client through Fiverr, which meant learning cross-platform development from day one, well before it became a specialty. That mix of Android, backend, and Flutter gave me the range I later brought into iOS.",
+      tags: ["Android", "Java", "Spring Boot", "Flutter", "Freelance"],
     },
   ],
 
   // ---------------- Skills / stack ----------------
-  // Each card = one category. Add/remove cards or items freely.
-  skills: [
-    {
-      label: "iOS · native",
-      title: "Swift & Apple frameworks",
-      items: [
-        "Swift",
-        "UIKit",
-        "SwiftUI",
-        "Combine",
-        "Core Data",
-        "Auto Layout",
-      ],
-    },
-    {
-      label: "Cross-platform",
-      title: "Flutter & Dart",
-      items: ["Flutter", "Dart", "Provider / Riverpod", "Platform channels"],
-    },
-    {
-      label: "Web",
-      title: "Frontend for admin & marketing",
-      items: ["ReactJS", "JavaScript", "HTML/CSS", "Responsive design"],
-    },
-    {
-      label: "Backend",
-      title: "Firebase & services",
-      items: [
-        "Firebase Auth",
-        "Firestore",
-        "Cloud Functions",
-        "Firebase Hosting",
-        "Push notifications",
-      ],
-    },
-    {
-      label: "Tooling",
-      title: "App lifecycle",
-      items: ["Xcode", "App Store Connect", "Git", "CI/CD", "TestFlight"],
-    },
-    {
-      label: "Practice",
-      title: "Ways of working",
-      items: [
-        "Code review",
-        "Agile / Scrum",
-        "Cross-functional collaboration",
-        "Mentoring",
-      ],
-    },
-  ],
+  // intro supports {{years}} / {{yearsInt}} tokens, same as other text fields.
+  // categories: each card = one group. Add/remove cards or items freely.
+  skillsSection: {
+    intro:
+      "{{yearsInt}} years of iOS engineering, layered with Flutter, web, and backend tools from building my own products end to end.",
+    categories: [
+      {
+        label: "iOS · native",
+        title: "Swift & Apple frameworks",
+        items: [
+          "Swift",
+          "UIKit",
+          "SwiftUI",
+          "Combine",
+          "Core Data",
+          "Auto Layout",
+        ],
+      },
+      {
+        label: "Cross-platform",
+        title: "Flutter & Dart",
+        items: ["Flutter", "Dart", "Provider / Riverpod", "Platform channels"],
+      },
+      {
+        label: "Web",
+        title: "Frontend for admin & marketing",
+        items: ["ReactJS", "JavaScript", "HTML/CSS", "Responsive design"],
+      },
+      {
+        label: "Backend",
+        title: "Firebase & services",
+        items: [
+          "Firebase Auth",
+          "Firestore",
+          "Cloud Functions",
+          "Firebase Hosting",
+          "Push notifications",
+        ],
+      },
+      {
+        label: "Tooling",
+        title: "App lifecycle",
+        items: [
+          "Xcode",
+          "App Store Connect",
+          "Google Play",
+          "Git",
+          "CI/CD",
+          "TestFlight",
+        ],
+      },
+      {
+        label: "Practice",
+        title: "Ways of working",
+        items: [
+          "Code review",
+          "Agile / Scrum",
+          "Cross-functional collaboration",
+          "Mentoring",
+        ],
+      },
+    ],
+  },
 
   // ---------------- Projects ----------------
   // type: "Company" (built as part of a team) or "Personal" (built solo)
@@ -235,24 +273,35 @@ window.portfolioData = {
   // ---------------- Contact ----------------
   contact: {
     heading: "Let's talk.",
-    body: "Open to AI engineering roles and interesting collaborations. Fastest way to reach me is email.",
-    email: "hello@example.com",
-    github: { label: "github.com/yourhandle", href: "#" },
-    linkedin: { label: "linkedin.com/in/yourhandle", href: "#" },
+    body: "Actively looking for new iOS and Flutter opportunities, and always open to interesting collaborations. Fastest way to reach me is email.",
+    email: "haidarirfan.hi043@gmail.com", // professional contact email
+    github: {
+      label: "github.com/HaidarBhatti",
+      href: "https://github.com/HaidarBhatti",
+    },
+    linkedin: {
+      label: "linkedin.com/in/haidar-irfan",
+      href: "https://www.linkedin.com/in/haidar-irfan-a4b91a176/",
+    },
+    x: { label: "@HaidarBhattiDev", href: "https://x.com/HaidarBhattiDev" },
     location: "Remote / Open to relocate",
     // Where the contact form submits. Leave as null to just show an alert.
     // Set this to a Formspree endpoint (or similar) to actually receive messages:
     // formEndpoint: "https://formspree.io/f/yourFormId"
-    formEndpoint: null,
+    formEndpoint: "https://formspree.io/f/xnjeqnlp",
   },
 
   // ---------------- Footer ----------------
   footer: {
     copyright: "© 2026 Haidar Irfan · Built with intent, not a template.",
     socials: [
-      { label: "GitHub", href: "#" },
-      { label: "LinkedIn", href: "#" },
-      { label: "Email", href: "mailto:hello@example.com" },
+      { label: "GitHub", href: "https://github.com/HaidarBhatti" },
+      {
+        label: "LinkedIn",
+        href: "https://www.linkedin.com/in/haidar-irfan-a4b91a176/",
+      },
+      { label: "X", href: "https://x.com/HaidarBhattiDev" },
+      { label: "Email", href: "mailto:haidarirfan.hi043@gmail.com" },
     ],
   },
 };
