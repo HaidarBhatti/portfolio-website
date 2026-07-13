@@ -249,11 +249,12 @@ window.portfolioData = {
         "Firebase Hosting",
         "Firebase Storage",
         "Remote Config",
+        "Multi-language support",
       ],
       metrics: [
         { label: "Role", value: "Solo Developer" },
         { label: "Scope", value: "App · Admin Panel · Website" },
-        { label: "Platform", value: "Android, iOS(coming soon)" },
+        { label: "Platform", value: "Android" },
         { label: "Backend", value: "Firebase" },
       ],
       // Multiple call-to-action links. status: "live" (clickable) or "soon" (dimmed, shows a note on tap).
@@ -302,28 +303,6 @@ window.portfolioData = {
     },
     {
       type: "Personal",
-      icon: "assets/icons/quote-share.png",
-      title: "Quote Share",
-      status: "Unavailable",
-      description:
-        "An iOS app for creating and sharing personalized quote cards from well-known figures. Users pick a favorite personality, customize the quote with backgrounds and fonts, and share the result straight to social media. Built solo end to end, with a settings screen for personalizing app behavior and no user data collection.",
-      stack: ["Swift", "UIKit", "Firebase"],
-      metrics: [
-        { label: "Role", value: "Solo Developer" },
-        { label: "Platform", value: "iOS" },
-        { label: "Backend", value: "Rest API and Firebase" },
-      ],
-      links: [
-        { label: "Android", href: "#", status: "soon" },
-        {
-          label: "iOS",
-          href: "https://apps.apple.com/pk/app/quote-share/id6471227650",
-          status: "inactive",
-        },
-      ],
-    },
-    {
-      type: "Personal",
       icon: "assets/icons/wallcrafty.png",
       title: "Wallcrafty",
       status: "Unavailable",
@@ -340,6 +319,28 @@ window.portfolioData = {
         {
           label: "iOS",
           href: "https://apps.apple.com/us/app/wallcrafty/id6472342660",
+          status: "inactive",
+        },
+      ],
+    },
+    {
+      type: "Personal",
+      icon: "assets/icons/quote-share.png",
+      title: "Quote Share",
+      status: "Unavailable",
+      description:
+        "An iOS app for creating and sharing personalized quote cards from well-known figures. Users pick a favorite personality, customize the quote with backgrounds and fonts, and share the result straight to social media. Built solo end to end, with a settings screen for personalizing app behavior and no user data collection.",
+      stack: ["Swift", "UIKit", "Firebase"],
+      metrics: [
+        { label: "Role", value: "Solo Developer" },
+        { label: "Platform", value: "iOS" },
+        { label: "Backend", value: "Rest API and Firebase" },
+      ],
+      links: [
+        { label: "Android", href: "#", status: "soon" },
+        {
+          label: "iOS",
+          href: "https://apps.apple.com/pk/app/quote-share/id6471227650",
           status: "inactive",
         },
       ],
