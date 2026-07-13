@@ -190,45 +190,166 @@ window.portfolioData = {
     // ---- Company / team projects (iOS, Swift) ----
     {
       type: "Company",
-      title: "App name", // TODO: real app name (or "Confidential — retail client" etc. if under NDA)
+      icon: "assets/icons/circlonline.png",
+      title: "Circl Online",
       status: "Live",
       description:
-        "Built and maintained key features as part of the iOS team, working across UIKit and SwiftUI in a production codebase shipped to the App Store.", // TODO: real description
-      stack: ["Swift", "UIKit", "SwiftUI"],
+        "Circlonline is a fitness-focused platform that connects influencers and business owners with fitness lovers, enabling them to offer services both online and offline. Based in Saudi Arabia and available in the UK, Circlonline supports both English and Arabic, making it easy to discover, book, and engage with fitness services anytime, anywhere.",
+      stack: ["Swift", "SwiftUI", "UIKit", "REST APIs"],
       metrics: [
-        { label: "Role", value: "iOS Developer" },
-        { label: "Team size", value: "— " }, // TODO
-        { label: "App Store", value: "Live" },
-      ],
-      link: "#",
-    },
-    {
-      type: "Company",
-      title: "App name", // TODO
-      status: "Live",
-      description:
-        "Contributed to architecture, networking, and release process as part of a cross-functional product team.", // TODO
-      stack: ["Swift", "SwiftUI", "Combine"],
-      metrics: [
-        { label: "Role", value: "iOS Developer" },
-        { label: "Team size", value: "— " }, // TODO
-        { label: "App Store", value: "Live" },
-      ],
-      link: "#",
-    },
-    {
-      type: "Company",
-      title: "App name", // TODO — add more company projects by copying this block
-      status: "Maintained",
-      description:
-        "Owned a major module end to end, from design handoff through App Store release and post-launch iteration.", // TODO
-      stack: ["Swift", "UIKit", "Core Data"],
-      metrics: [
+        { label: "Company", value: "Circl Online, Riyadh" },
         { label: "Role", value: "Senior iOS Developer" },
-        { label: "Team size", value: "— " }, // TODO
-        { label: "App Store", value: "Live" },
+        { label: "Category", value: "Health & Fitness" },
+        { label: "Markets", value: "Saudi Arabia, UK" },
+        { label: "Languages", value: "English, Arabic" },
       ],
-      link: "#",
+      links: [
+        {
+          label: "iOS",
+          href: "https://apps.apple.com/gb/app/circl-%D8%B3%D9%8A%D8%B1%D9%83%D9%84/id1526462647",
+          status: "live",
+        },
+        { label: "Android", href: "#", status: "soon" },
+      ],
+    },
+    {
+      type: "Company",
+      title: "TipsAllowed",
+      icon: "assets/icons/TipsAllowed.jpg",
+      status: "Live",
+      description:
+        "Developed TipsAllowed, an innovative iOS app that connects sports fans directly with athletes for personalized advice. Fans record short video questions, send them to selected athletes (professional, college, or school level), and receive tailored video responses.The platform creates a unique earning opportunity for athletes while fostering real community connections through seamless video exchanges and exclusive live sessions for top fans.",
+      stack: ["Swift", "UIKit", "SwiftUI", "REST APIs"],
+      metrics: [
+        { label: "Company", value: "Onyxtec, Lahore" },
+        { label: "Role", value: "Senior iOS Developer" },
+        { label: "Category", value: "Sports" },
+        { label: "Market", value: "United States" },
+        { label: "Language", value: "English" },
+      ],
+      links: [
+        {
+          label: "iOS",
+          href: "https://apps.apple.com/pk/app/tipsallowed/id6464362411",
+          status: "live",
+        },
+      ],
+    },
+    {
+      type: "Company",
+      title: "The Locker Room",
+      icon: "assets/icons/tlr.jpg",
+      status: "Live",
+      description:
+        "Developed 'The Locker Room', an iOS app fostering direct communication between fans and athletes through Q&A sessions. Used Swift and Firebase to build a platform where athletes monetize their expertise through one-on-one short-form video exchanges — fans record a video question for an athlete, and receive a personalized video reply in return. TipsAllowed is the successor to this app.",
+      stack: ["Swift", "Firebase"],
+      metrics: [
+        { label: "Company", value: "Onyxtec, Lahore" },
+        { label: "Role", value: "iOS Developer" },
+        { label: "Category", value: "Sports" },
+        { label: "Market", value: "United States" },
+        { label: "Language", value: "English" },
+      ],
+      links: [
+        {
+          label: "iOS",
+          href: "https://apps.apple.com/pk/app/the-locker-room-tlr/id1580857069",
+          status: "live",
+        },
+      ],
+    },
+    {
+      type: "Company",
+      title: "BuildMarker (App Family)",
+      status: "Inactive",
+      description:
+        "Worked across a family of three companion apps — BuildMarker Customer, BuildMarker Stakeholder, and BuildMarker Field — built to give residential construction customers and stakeholders real-time visibility into a home build's progress. Responsible for resolving crashes, implementing new features and logic per client requirements, and managing App Store listings and releases across all three apps. Built in Swift, with API integration handling the underlying business data shared across the app family.",
+      stack: ["Swift", "REST APIs"],
+      // Row of icons representing the app family. Currently placeholders —
+      // swap each src for the real app icon once available.
+      icons: [
+        {
+          label: "Customer",
+          src: "assets/icons/buildmarker-customer-placeholder.png",
+        },
+        {
+          label: "Stakeholder",
+          src: "assets/icons/buildmarker-stakeholder-placeholder.png",
+        },
+        {
+          label: "Field",
+          src: "assets/icons/buildmarker-field-placeholder.png",
+        },
+      ],
+      metrics: [
+        { label: "Company", value: "Onyxtec, Lahore" },
+        { label: "Role", value: "iOS Developer" },
+        { label: "Category", value: "Business" },
+        { label: "Market", value: "United States" },
+        { label: "Language", value: "English" },
+      ],
+      links: [
+        {
+          label: "iOS for Customer",
+          href: "https://apps.apple.com/app/buildmarker-customer/id1505570466",
+          status: "inactive",
+        },
+        {
+          label: "iOS for Stakeholder",
+          href: "https://apps.apple.com/app/buildmarker-stakeholder/id1505570610",
+          status: "inactive",
+        },
+        {
+          label: "iOS for Field",
+          href: "https://apps.apple.com/app/buildmarker-field/id1505570662",
+          status: "inactive",
+        },
+      ],
+    },
+    {
+      type: "Company",
+      title: "EasyIslam: Quran & Namaz app",
+      icon: "assets/icons/islamic_app.jpg",
+      status: "Live",
+      description:
+        "EasyIslam is a free Islamic companion app offering the full Quran with Urdu & English translations, accurate prayer times with Azan alerts, Qibla compass, Tasbeeh counter, Duas, Zakat calculator, and a kids section with Islamic stories. Clean UI, no ads or subscriptions. Built to support daily worship and spiritual growth.",
+      stack: ["Swift", "Firebase"],
+      metrics: [
+        { label: "Company", value: "Techificent, Lahore" },
+        { label: "Role", value: "iOS Developer" },
+        { label: "Category", value: "Reference" },
+        { label: "Market", value: "Pakistan" },
+        { label: "Language", value: "English, Urdu" },
+      ],
+      links: [
+        {
+          label: "iOS",
+          href: "https://apps.apple.com/pk/app/easyislam-quran-namaz-app/id1613735799",
+          status: "live",
+        },
+      ],
+    },
+    {
+      type: "Company",
+      title: "Pakistan Cargo Services App ",
+      status: "Live",
+      description:
+        "Developed 'The Locker Room', an iOS app fostering direct communication between fans and athletes through Q&A sessions. Used Swift and Firebase to build a platform where athletes monetize their expertise through one-on-one short-form video exchanges — fans record a video question for an athlete, and receive a personalized video reply in return. TipsAllowed is the successor to this app.",
+      stack: ["Swift", "Firebase"],
+      metrics: [
+        { label: "Company", value: "Mobizion, Daska, Sialkot" },
+        { label: "Role", value: "iOS Developer" },
+        { label: "Category", value: "Logistics" },
+        { label: "Market", value: "Worldwide" },
+        { label: "Language", value: "English" },
+      ],
+      links: [
+        {
+          label: "iOS",
+          href: "https://apps.apple.com/pk/app/pakistan-cargo-services-app/id1613735799",
+          status: "live",
+        },
+      ],
     },
 
     // ---- Personal projects ----
@@ -305,7 +426,7 @@ window.portfolioData = {
       type: "Personal",
       icon: "assets/icons/wallcrafty.png",
       title: "Wallcrafty",
-      status: "Unavailable",
+      status: "Inactive",
       description:
         "An iOS app for discovering and downloading high-quality wallpapers, built for iPhone users who want their device to reflect their personal style. Wallpapers are organized into curated categories spanning nature, abstract art, and beyond, with both portrait and original sizing so every image fits cleanly. Includes preview-before-download, daily-refreshed content, and search/filtering by category, color, and theme.",
       stack: ["Swift", "UIKit", "Rest API"],
@@ -327,10 +448,10 @@ window.portfolioData = {
       type: "Personal",
       icon: "assets/icons/quote-share.png",
       title: "Quote Share",
-      status: "Unavailable",
+      status: "Inactive",
       description:
         "An iOS app for creating and sharing personalized quote cards from well-known figures. Users pick a favorite personality, customize the quote with backgrounds and fonts, and share the result straight to social media. Built solo end to end, with a settings screen for personalizing app behavior and no user data collection.",
-      stack: ["Swift", "UIKit", "Firebase"],
+      stack: ["Swift", "UIKit", "Rest API", "Firebase"],
       metrics: [
         { label: "Role", value: "Solo Developer" },
         { label: "Platform", value: "iOS" },
