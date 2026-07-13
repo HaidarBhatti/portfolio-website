@@ -47,7 +47,10 @@ window.portfolioData = {
     ],
     stats: [
       { label: "iOS experience", value: "{{years}} yrs" },
-      { label: "Current role", value: "Remote iOS Dev · Riyadh" },
+      {
+        label: "Current role",
+        value: "Senior iOS dev at Circl Online, Riyadh - Remote",
+      },
       { label: "Status", value: "Actively looking" },
     ],
     primaryCta: { label: "View the work", href: "#projects" },
@@ -231,42 +234,115 @@ window.portfolioData = {
     // ---- Personal projects ----
     {
       type: "Personal",
-      title: "Your Flutter app name", // TODO
+      icon: "https://play-lh.googleusercontent.com/ht3XNKped-LapFQDJFJplUs0AoovP8V3Pc_UenT69uM5F7otWZlpvBpQaB4_L_lrye_EzkyCE1wKjwCI6sma-A=s256", // fetched from Play Store listing
+      title: "Kabootar Bazi",
       status: "Live",
+      availability: "Available worldwide",
       description:
-        "My first cross-platform build: a Flutter app, a companion admin panel to manage its content/users, and a marketing website — all built solo in 4 months, backed by Firebase.", // TODO — tailor this
-      stack: ["Flutter", "Dart", "Firebase", "ReactJS"],
+        "Pigeon racing tournaments across South Asia and the Middle East involve calculating flight-hour rankings for hundreds of birds across hundreds of tournaments — traditionally a slow, error-prone manual process. Kabootar Bazi replaces that with instant, accurate results. Built and shipped solo end to end: the Flutter app (live on Google Play, iOS coming soon), a Flutter/Dart admin panel to manage tournaments and entries, and a React website for publishing results — designed with UI/UX and calculation accuracy specifically built to outclass existing tools in the space.",
+      stack: [
+        "Flutter",
+        "Dart",
+        "ReactJS",
+        "Firebase Auth",
+        "Firestore",
+        "Firebase Hosting",
+        "Firebase Storage",
+        "Remote Config",
+      ],
       metrics: [
-        { label: "Built in", value: "4 months" },
-        { label: "Components", value: "App + Admin + Web" },
+        { label: "Role", value: "Solo Developer" },
+        { label: "Scope", value: "App · Admin Panel · Website" },
+        { label: "Platform", value: "Android, iOS(coming soon)" },
         { label: "Backend", value: "Firebase" },
       ],
-      link: "#", // TODO: link to the app store / website
+      // Multiple call-to-action links. status: "live" (clickable) or "soon" (dimmed, shows a note on tap).
+      links: [
+        {
+          label: "Android",
+          href: "https://play.google.com/store/apps/details?id=com.haidar.pigeonapp",
+          status: "live",
+        },
+        { label: "iOS", href: "#", status: "soon" },
+        {
+          label: "Website",
+          href: "https://kabootarbazi.web.app",
+          status: "live",
+        },
+      ],
     },
     {
       type: "Personal",
-      title: "UIKit app #1", // TODO: real name
+      icon: "https://play-lh.googleusercontent.com/e_y9RLVfvJQnjygUiOCPGgZh6yuo5sRJi8s1Pz8R7m28fcQRlX5DZKUXTl4odl2gF_qHM7tGWmWTO0oGN5dTgxg=s256", // fetched from Play Store listing
+      title: "Darzi Online",
       status: "Live",
+      availability: "Available in Pakistan only",
       description:
-        "A personal iOS app built independently with UIKit, from concept through App Store submission.", // TODO
-      stack: ["Swift", "UIKit"],
-      metrics: [
-        { label: "Platform", value: "iOS" },
-        { label: "Built solo", value: "Yes" },
+        "Tailors have traditionally tracked customer measurements on paper — records that get lost, torn, or simply fade and expire with age, forcing awkward re-measurements and frustrating repeat customers. Darzi Online replaces the paper diary entirely: secure OTP login, a clean customer list, and measurements stored digitally and available the instant a tailor needs them, in the language they're most comfortable working in. Built and shipped solo, backed by Firebase.",
+      stack: [
+        "Flutter",
+        "Dart",
+        "Firebase Auth (OTP)",
+        "Firestore",
+        "Multi-language support",
       ],
-      link: "#",
+      metrics: [
+        { label: "Role", value: "Solo Developer" },
+        { label: "Platform", value: "Android" },
+        { label: "Backend", value: "Firebase" },
+      ],
+      links: [
+        {
+          label: "Android",
+          href: "https://play.google.com/store/apps/details?id=com.haidar.darzionline",
+          status: "live",
+        },
+        { label: "iOS", href: "#", status: "soon" },
+      ],
     },
     {
       type: "Personal",
-      title: "UIKit app #2", // TODO: real name
-      status: "Live",
-      description: "A second independent iOS app, also built with UIKit.", // TODO
-      stack: ["Swift", "UIKit"],
+      icon: "assets/icons/quote-share.png",
+      title: "Quote Share",
+      status: "Unavailable",
+      description:
+        "An iOS app for creating and sharing personalized quote cards from well-known figures. Users pick a favorite personality, customize the quote with backgrounds and fonts, and share the result straight to social media. Built solo end to end, with a settings screen for personalizing app behavior and no user data collection.",
+      stack: ["Swift", "UIKit", "Firebase"],
       metrics: [
+        { label: "Role", value: "Solo Developer" },
         { label: "Platform", value: "iOS" },
-        { label: "Built solo", value: "Yes" },
+        { label: "Backend", value: "Rest API and Firebase" },
       ],
-      link: "#",
+      links: [
+        { label: "Android", href: "#", status: "soon" },
+        {
+          label: "iOS",
+          href: "https://apps.apple.com/pk/app/quote-share/id6471227650",
+          status: "inactive",
+        },
+      ],
+    },
+    {
+      type: "Personal",
+      icon: "assets/icons/wallcrafty.png",
+      title: "Wallcrafty",
+      status: "Unavailable",
+      description:
+        "An iOS app for discovering and downloading high-quality wallpapers, built for iPhone users who want their device to reflect their personal style. Wallpapers are organized into curated categories spanning nature, abstract art, and beyond, with both portrait and original sizing so every image fits cleanly. Includes preview-before-download, daily-refreshed content, and search/filtering by category, color, and theme.",
+      stack: ["Swift", "UIKit", "Rest API"],
+      metrics: [
+        { label: "Role", value: "Solo Developer" },
+        { label: "Platform", value: "iOS" },
+        { label: "Backend", value: "Rest API" },
+      ],
+      links: [
+        { label: "Android", href: "#", status: "soon" },
+        {
+          label: "iOS",
+          href: "https://apps.apple.com/us/app/wallcrafty/id6472342660",
+          status: "inactive",
+        },
+      ],
     },
   ],
 
@@ -288,7 +364,7 @@ window.portfolioData = {
     // Where the contact form submits. Leave as null to just show an alert.
     // Set this to a Formspree endpoint (or similar) to actually receive messages:
     // formEndpoint: "https://formspree.io/f/yourFormId"
-    formEndpoint: "https://formspree.io/f/xnjeqnlp",
+    formEndpoint: null,
   },
 
   // ---------------- Footer ----------------

@@ -134,14 +134,105 @@
     .join("");
 
   // ---------- Projects (grouped by type: Company vs Personal) ----------
-  const projectCard = (p) => `
+  // ---------- Custom modal (replaces browser alert/confirm) ----------
+  const modalOverlay = document.getElementById("app-modal");
+  const modalTitle = document.getElementById("app-modal-title");
+  const modalMessage = document.getElementById("app-modal-message");
+  const modalClose = document.getElementById("app-modal-close");
+
+  window.showAppModal = function (title, message) {
+    if (!modalOverlay) return;
+    modalTitle.textContent = title;
+    modalMessage.textContent = message;
+    modalOverlay.hidden = false;
+  };
+  function hideAppModal() {
+    if (modalOverlay) modalOverlay.hidden = true;
+  }
+  if (modalClose) modalClose.addEventListener("click", hideAppModal);
+  if (modalOverlay) {
+    modalOverlay.addEventListener("click", function (ev) {
+      if (ev.target === modalOverlay) hideAppModal();
+    });
+  }
+  document.addEventListener("keydown", function (ev) {
+    if (ev.key === "Escape") hideAppModal();
+  });
+
+  // Shown when someone taps a "coming soon" link button.
+  window.showComingSoon = function (label) {
+    window.showAppModal(
+      "Coming soon",
+      label + " is coming soon — currently in progress. Check back shortly!",
+    );
+  };
+
+  // Expands/collapses a truncated project description (See more / See less).
+  window.toggleProjectDesc = function (btn) {
+    const id = btn.getAttribute("data-target");
+    const desc = document.getElementById(id);
+    if (!desc) return;
+    const expanded = desc.classList.toggle("expanded");
+    btn.textContent = expanded ? "See less" : "See more";
+  };
+
+  // Small platform icons for link buttons. Generic device-style glyphs,
+  // not literal brand logos, to keep things safe and lightweight.
+  const platformIcon = (label) => {
+    const key = label.toLowerCase();
+    if (key.includes("android")) {
+      return `<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18c0 .55.45 1 1 1h1v3.5a1.5 1.5 0 0 0 3 0V19h2v3.5a1.5 1.5 0 0 0 3 0V19h1c.55 0 1-.45 1-1V9H6v9zM3.5 9A1.5 1.5 0 0 0 2 10.5v6a1.5 1.5 0 0 0 3 0v-6A1.5 1.5 0 0 0 3.5 9zm17 0a1.5 1.5 0 0 0-1.5 1.5v6a1.5 1.5 0 0 0 3 0v-6a1.5 1.5 0 0 0-1.5-1.5zM15.53 3.83l1.3-1.3a.5.5 0 0 0-.7-.7l-1.42 1.42a5.94 5.94 0 0 0-4.42 0L8.87 1.83a.5.5 0 1 0-.7.7l1.3 1.3A6 6 0 0 0 6 9h12a6 6 0 0 0-2.47-5.17zM9.5 6.5a.75.75 0 1 1 1.5 0 .75.75 0 0 1-1.5 0zm5 0a.75.75 0 1 1 1.5 0 .75.75 0 0 1-1.5 0z"/></svg>`;
+    }
+    if (
+      key.includes("ios") ||
+      key.includes("apple") ||
+      key.includes("app store")
+    ) {
+      return `<svg width="12" height="12" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>`;
+    }
+    if (key.includes("web") || key.includes("site")) {
+      return `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><line x1="3" y1="12" x2="21" y2="12"></line><path d="M12 3a14.5 14.5 0 0 1 0 18 14.5 14.5 0 0 1 0-18z"></path></svg>`;
+    }
+    return "";
+  };
+
+  const projectLinks = (p) => {
+    if (p.links) {
+      return `<div class="project-links">${p.links
+        .map((l) =>
+          l.status === "soon"
+            ? `<button type="button" class="project-link-btn is-soon" onclick="window.showComingSoon('${esc(l.label)}')">${platformIcon(l.label)}${esc(l.label)} · Soon</button>`
+            : `<a href="${esc(l.href)}" class="project-link-btn" target="_blank" rel="noopener noreferrer">${platformIcon(l.label)}${esc(l.label)}</a>`,
+        )
+        .join("")}</div>`;
+    }
+    return `<a href="${esc(p.link)}" class="project-link" target="_blank" rel="noopener noreferrer">View writeup →</a>`;
+  };
+
+  let projectCardCount = 0;
+  const projectCard = (p) => {
+    const descId = `project-desc-${projectCardCount++}`;
+    return `
       <div class="project">
         <div>
           <div class="project-head">
-            <h3>${esc(p.title)}</h3>
-            <span class="status">${esc(p.status)}</span>
+            ${
+              p.icon
+                ? `<img class="project-icon" src="${esc(p.icon)}" alt="${esc(p.title)} icon" loading="lazy">`
+                : `<div class="project-icon project-icon-placeholder">${esc(p.title.charAt(0))}</div>`
+            }
+            <div class="project-head-text">
+              <h3>${esc(p.title)}</h3>
+              <span class="status">${esc(p.status)}</span>
+            </div>
           </div>
-          <p>${esc(p.description)}</p>
+          ${
+            p.availability
+              ? `<div class="project-availability"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>${esc(p.availability)}</div>`
+              : ""
+          }
+          <p class="project-desc" id="${descId}">${esc(p.description)}</p>
+          <button type="button" class="project-desc-toggle" data-target="${descId}" onclick="window.toggleProjectDesc(this)">See more</button>
           <div class="stack">${p.stack.map((s) => `<span>${esc(s)}</span>`).join("")}</div>
         </div>
         <div class="project-metrics">
@@ -151,9 +242,10 @@
                 `<div class="metric-row"><span class="k">${esc(m.label)}</span><span class="v">${esc(m.value)}</span></div>`,
             )
             .join("")}
-          <a href="${esc(p.link)}" class="project-link" target="_blank" rel="noopener noreferrer">View writeup →</a>
+          ${projectLinks(p)}
         </div>
       </div>`;
+  };
 
   const companyProjects = d.projects.filter((p) => p.type === "Company");
   const personalProjects = d.projects.filter((p) => p.type === "Personal");
@@ -182,6 +274,18 @@
   }
   projectsList.outerHTML = `<div id="projects-list">${projectsHtml}</div>`;
 
+  // Only show the "See more" toggle for descriptions that are actually
+  // being clamped/truncated — short descriptions get no button at all.
+  document.querySelectorAll(".project-desc").forEach((desc) => {
+    const btn = document.querySelector(
+      `.project-desc-toggle[data-target="${desc.id}"]`,
+    );
+    if (!btn) return;
+    if (desc.scrollHeight > desc.clientHeight + 1) {
+      btn.classList.add("is-visible");
+    }
+  });
+
   // ---------- Contact ----------
   const c = d.contact;
   document.getElementById("contact-heading").textContent = c.heading;
@@ -198,7 +302,8 @@
   form.addEventListener("submit", function (ev) {
     if (!c.formEndpoint) {
       ev.preventDefault();
-      alert(
+      window.showAppModal(
+        "Message not sent",
         "This form isn't wired up yet. Set contact.formEndpoint in data.js (e.g. a Formspree URL) to start receiving messages.",
       );
     }
