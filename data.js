@@ -185,6 +185,11 @@ window.portfolioData = {
   // ---------------- Projects ----------------
   // type: "Company" (built as part of a team) or "Personal" (built solo)
   // status: "Live" | "Maintained" | "Archived" | any short word
+  // contribution: what you actually did on this app — e.g. "Built from
+  //   scratch", "Maintained & shipped new features", "Major redesign".
+  //   Shown as a small blue badge next to "availability". Optional field —
+  //   mainly useful on Company projects since Personal ones are solo-built
+  //   by definition.
   // metrics: up to ~4 label/value pairs, shown on the right of the card
   projects: [
     // ---- Company / team projects (iOS, Swift) ----
@@ -195,12 +200,13 @@ window.portfolioData = {
       status: "Live",
       description:
         "Circlonline is a fitness-focused platform that connects influencers and business owners with fitness lovers, enabling them to offer services both online and offline. Based in Saudi Arabia and available in the UK, Circlonline supports both English and Arabic, making it easy to discover, book, and engage with fitness services anytime, anywhere.",
+      availability: "Available in Saudi Arabia, UK",
+      contribution: "Maintained & shipped new features",
       stack: ["Swift", "SwiftUI", "UIKit", "REST APIs"],
       metrics: [
         { label: "Company", value: "Circl Online, Riyadh" },
         { label: "Role", value: "Senior iOS Developer" },
         { label: "Category", value: "Health & Fitness" },
-        { label: "Markets", value: "Saudi Arabia, UK" },
         { label: "Languages", value: "English, Arabic" },
       ],
       links: [
@@ -219,12 +225,13 @@ window.portfolioData = {
       status: "Live",
       description:
         "Developed TipsAllowed, an innovative iOS app that connects sports fans directly with athletes for personalized advice. Fans record short video questions, send them to selected athletes (professional, college, or school level), and receive tailored video responses.The platform creates a unique earning opportunity for athletes while fostering real community connections through seamless video exchanges and exclusive live sessions for top fans.",
+      availability: "Available in United States",
+      contribution: "Major updates & shipped new versions",
       stack: ["Swift", "UIKit", "SwiftUI", "REST APIs"],
       metrics: [
         { label: "Company", value: "Onyxtec, Lahore" },
         { label: "Role", value: "Senior iOS Developer" },
         { label: "Category", value: "Sports" },
-        { label: "Market", value: "United States" },
         { label: "Language", value: "English" },
       ],
       links: [
@@ -242,12 +249,13 @@ window.portfolioData = {
       status: "Live",
       description:
         "Developed 'The Locker Room', an iOS app fostering direct communication between fans and athletes through Q&A sessions. Used Swift and Firebase to build a platform where athletes monetize their expertise through one-on-one short-form video exchanges — fans record a video question for an athlete, and receive a personalized video reply in return. TipsAllowed is the successor to this app.",
+      availability: "Available in United States",
+      contribution: "Major updates & shipped new versions",
       stack: ["Swift", "Firebase"],
       metrics: [
         { label: "Company", value: "Onyxtec, Lahore" },
         { label: "Role", value: "iOS Developer" },
         { label: "Category", value: "Sports" },
-        { label: "Market", value: "United States" },
         { label: "Language", value: "English" },
       ],
       links: [
@@ -263,29 +271,29 @@ window.portfolioData = {
       title: "BuildMarker (App Family)",
       status: "Inactive",
       description:
-        "Worked across a family of three companion apps — BuildMarker Customer, BuildMarker Stakeholder, and BuildMarker Field — built to give residential construction customers and stakeholders real-time visibility into a home build's progress. Responsible for resolving crashes, implementing new features and logic per client requirements, and managing App Store listings and releases across all three apps. Built in Swift, with API integration handling the underlying business data shared across the app family.",
+        "Worked across a family of three companion apps — BuildMarker Customer, BuildMarker Stakeholder, and BuildMarker Field — built to give residential construction customers and stakeholders real-time visibility into a home build's progress. Responsible for resolving crashes and shipping bug fixes across all three apps, along with managing App Store listings and releases. Built in Swift, with API integration handling the underlying business data shared across the app family.",
       stack: ["Swift", "REST APIs"],
-      // Row of icons representing the app family. Currently placeholders —
-      // swap each src for the real app icon once available.
+      // Row of icons representing the app family.
       icons: [
         {
           label: "Customer",
-          src: "assets/icons/buildmarker-customer-placeholder.png",
+          src: "assets/icons/bm_customer.png",
         },
         {
           label: "Stakeholder",
-          src: "assets/icons/buildmarker-stakeholder-placeholder.png",
+          src: "assets/icons/bm_stakeholder.png",
         },
         {
           label: "Field",
-          src: "assets/icons/buildmarker-field-placeholder.png",
+          src: "assets/icons/bm_field.png",
         },
       ],
+      availability: "Available in United States",
+      contribution: "Maintained & shipped bug fixes",
       metrics: [
         { label: "Company", value: "Onyxtec, Lahore" },
         { label: "Role", value: "iOS Developer" },
         { label: "Category", value: "Business" },
-        { label: "Market", value: "United States" },
         { label: "Language", value: "English" },
       ],
       links: [
@@ -313,12 +321,13 @@ window.portfolioData = {
       status: "Live",
       description:
         "EasyIslam is a free Islamic companion app offering the full Quran with Urdu & English translations, accurate prayer times with Azan alerts, Qibla compass, Tasbeeh counter, Duas, Zakat calculator, and a kids section with Islamic stories. Clean UI, no ads or subscriptions. Built to support daily worship and spiritual growth.",
+      availability: "Available in Pakistan",
+      contribution: "Built from scratch",
       stack: ["Swift", "Firebase"],
       metrics: [
         { label: "Company", value: "Techificent, Lahore" },
         { label: "Role", value: "iOS Developer" },
         { label: "Category", value: "Reference" },
-        { label: "Market", value: "Pakistan" },
         { label: "Language", value: "English, Urdu" },
       ],
       links: [
@@ -331,16 +340,18 @@ window.portfolioData = {
     },
     {
       type: "Company",
-      title: "Pakistan Cargo Services App ",
+      title: "Pakistan Cargo Services App",
+      icon: "assets/icons/pcs.jpg",
       status: "Live",
       description:
-        "Developed 'The Locker Room', an iOS app fostering direct communication between fans and athletes through Q&A sessions. Used Swift and Firebase to build a platform where athletes monetize their expertise through one-on-one short-form video exchanges — fans record a video question for an athlete, and receive a personalized video reply in return. TipsAllowed is the successor to this app.",
-      stack: ["Swift", "Firebase"],
+        "Developed the Pakistan Cargo Services App, an iOS app for tracking and managing international cargo shipments. Built with Swift, integrating with backend REST APIs to give customers real-time shipment status, booking, and tracking details from a native iOS experience.",
+      stack: ["Swift", "REST APIs"],
+      availability: "Available worldwide",
+      contribution: "Built from scratch and shipped",
       metrics: [
         { label: "Company", value: "Mobizion, Daska, Sialkot" },
         { label: "Role", value: "iOS Developer" },
         { label: "Category", value: "Logistics" },
-        { label: "Market", value: "Worldwide" },
         { label: "Language", value: "English" },
       ],
       links: [
@@ -436,7 +447,6 @@ window.portfolioData = {
         { label: "Backend", value: "Rest API" },
       ],
       links: [
-        { label: "Android", href: "#", status: "soon" },
         {
           label: "iOS",
           href: "https://apps.apple.com/us/app/wallcrafty/id6472342660",
@@ -458,7 +468,6 @@ window.portfolioData = {
         { label: "Backend", value: "Rest API and Firebase" },
       ],
       links: [
-        { label: "Android", href: "#", status: "soon" },
         {
           label: "iOS",
           href: "https://apps.apple.com/pk/app/quote-share/id6471227650",

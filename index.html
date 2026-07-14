@@ -37,6 +37,8 @@
         --blue-rgb: 91, 141, 239;
         --green: #5fbf8e;
         --green-rgb: 95, 191, 142;
+        --red: #e0605f;
+        --red-rgb: 224, 96, 95;
 
         --display: "Space Grotesk", sans-serif;
         --body: "Inter", sans-serif;
@@ -59,6 +61,8 @@
         --blue-rgb: 47, 91, 199;
         --green: #25835a;
         --green-rgb: 37, 131, 90;
+        --red: #c33c3a;
+        --red-rgb: 195, 60, 58;
       }
 
       * {
@@ -654,6 +658,43 @@
         font-weight: 700;
         color: var(--text-dim);
       }
+
+      /* App-family icon stack (e.g. a set of companion apps under one project) */
+      .project-icon-stack {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+      }
+      .project-icon.project-icon-stacked {
+        position: relative;
+        margin-left: -12px;
+        border: 2px solid var(--surface);
+        overflow: hidden;
+      }
+      .project-icon-stack .project-icon-stacked:first-child {
+        margin-left: 0;
+      }
+      .project:hover .project-icon-stacked {
+        border-color: var(--surface-2);
+      }
+      .project-icon-stacked img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .project-icon-fallback {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        font-family: var(--display);
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text-dim);
+      }
       .project-head-text {
         display: flex;
         align-items: center;
@@ -675,6 +716,11 @@
         padding: 2px 8px;
         border-radius: 20px;
         white-space: nowrap;
+      }
+      .project .status.status-inactive {
+        color: var(--red);
+        border-color: rgba(var(--red-rgb), 0.3);
+        background: rgba(var(--red-rgb), 0.08);
       }
       .project p {
         color: var(--text-muted);
@@ -789,6 +835,18 @@
         border-color: var(--amber-dim);
         color: var(--amber);
       }
+      .project-link-btn .link-arrow {
+        margin-left: 2px;
+        opacity: 0.55;
+        transition:
+          transform 0.2s,
+          opacity 0.2s;
+      }
+      .project-link-btn:hover .link-arrow,
+      .project-link-btn:active .link-arrow {
+        opacity: 1;
+        transform: translate(1px, -1px);
+      }
       .project-link-btn.is-soon {
         opacity: 0.55;
         border-style: dashed;
@@ -797,6 +855,17 @@
         color: var(--text-muted);
         border-color: var(--border);
         opacity: 0.75;
+      }
+      .project-link-btn.is-inactive {
+        color: var(--red);
+        border-color: rgba(var(--red-rgb), 0.3);
+        background: rgba(var(--red-rgb), 0.06);
+        opacity: 0.75;
+        border-style: dashed;
+      }
+      .project-link-btn.is-inactive:hover {
+        border-color: var(--red);
+        opacity: 1;
       }
 
       .project-availability {
@@ -810,7 +879,21 @@
         border: 1px solid rgba(var(--amber-rgb), 0.25);
         padding: 3px 9px;
         border-radius: 20px;
-        margin-bottom: 8px;
+        margin: 0 8px 8px 0;
+      }
+
+      .project-contribution {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        color: var(--blue);
+        background: rgba(var(--blue-rgb), 0.08);
+        border: 1px solid rgba(var(--blue-rgb), 0.25);
+        padding: 3px 9px;
+        border-radius: 20px;
+        margin: 0 8px 8px 0;
       }
 
       @media (max-width: 720px) {
@@ -988,32 +1071,54 @@
         }
         .roadmap {
           flex-direction: column;
-          align-items: flex-start;
-          gap: 4px;
+          align-items: stretch;
+          gap: 0;
         }
         .roadmap-step {
+          position: relative;
           flex-direction: row;
-          align-items: center;
+          align-items: flex-start;
           text-align: left;
           width: auto;
-          gap: 10px;
+          gap: 12px;
+          padding-bottom: 26px;
+        }
+        .roadmap-step:last-child {
+          padding-bottom: 0;
         }
         .roadmap-dot {
           margin-bottom: 0;
           flex-shrink: 0;
+          position: relative;
+          z-index: 1;
+        }
+        /* Vertical connector between this step's dot and the next one.
+           Drawn as a thin pseudo-element instead of relying on the
+           sibling .roadmap-line box, which doesn't lay out correctly
+           in a column flow. */
+        .roadmap-step:not(:last-child)::after {
+          content: "";
+          position: absolute;
+          left: 6px;
+          top: 16px;
+          bottom: 2px;
+          width: 2px;
+          background: var(--border);
+        }
+        .roadmap-complete:not(:last-child)::after {
+          background: var(--green);
+        }
+        .roadmap-current:not(:last-child)::after {
+          background: linear-gradient(180deg, var(--amber), var(--border));
         }
         .roadmap-label {
-          min-width: 110px;
+          min-width: 0;
+        }
+        .roadmap-note {
+          padding: 0;
         }
         .roadmap-line {
-          width: 2px;
-          height: 20px;
-          margin: 0;
-          margin-left: 6px;
-          flex: none;
-        }
-        .roadmap-line-current {
-          background: linear-gradient(180deg, var(--amber), var(--border));
+          display: none;
         }
       }
     </style>

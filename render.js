@@ -110,7 +110,7 @@
         <div class="epoch-body">
           <h3>${esc(e.title)}${e.company ? ` <span class="epoch-company">— ${esc(e.company)}</span>` : ""}</h3>
           <p>${esc(e.description)}</p>
-          <div class="epoch-tags">${e.tags.map((t) => `<span>${esc(t)}</span>`).join("")}</div>
+          <div class="epoch-tags">${e.tags.map((tag) => `<span>${esc(tag)}</span>`).join("")}</div>
         </div>
       </div>`,
     )
@@ -167,6 +167,15 @@
     );
   };
 
+  // Shown when someone taps a link for an app/platform that's no longer
+  // active (e.g. pulled from the store). Reuses the same modal as "soon".
+  window.showInactiveApp = function (label) {
+    window.showAppModal(
+      "No longer active",
+      label + " is no longer active and isn't available to download anymore.",
+    );
+  };
+
   // Expands/collapses a truncated project description (See more / See less).
   window.toggleProjectDesc = function (btn) {
     const id = btn.getAttribute("data-target");
@@ -196,17 +205,48 @@
     return "";
   };
 
+  // Small trailing arrow used on real (external) links to signal that
+  // tapping actually navigates somewhere — helps the button read as
+  // tappable, especially on touch devices where :hover isn't available.
+  const externalArrow = () =>
+    `<svg class="link-arrow" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>`;
+
   const projectLinks = (p) => {
     if (p.links) {
       return `<div class="project-links">${p.links
-        .map((l) =>
-          l.status === "soon"
-            ? `<button type="button" class="project-link-btn is-soon" onclick="window.showComingSoon('${esc(l.label)}')">${platformIcon(l.label)}${esc(l.label)} · Soon</button>`
-            : `<a href="${esc(l.href)}" class="project-link-btn" target="_blank" rel="noopener noreferrer">${platformIcon(l.label)}${esc(l.label)}</a>`,
-        )
+        .map((l) => {
+          if (l.status === "soon") {
+            return `<button type="button" class="project-link-btn is-soon" onclick="window.showComingSoon('${esc(l.label)}')">${platformIcon(l.label)}${esc(l.label)} · Soon</button>`;
+          }
+          if (l.status === "inactive") {
+            return `<button type="button" class="project-link-btn is-inactive" onclick="window.showInactiveApp('${esc(l.label)}')">${platformIcon(l.label)}${esc(l.label)} · Inactive</button>`;
+          }
+          return `<a href="${esc(l.href)}" class="project-link-btn" target="_blank" rel="noopener noreferrer">${platformIcon(l.label)}${esc(l.label)}${externalArrow()}</a>`;
+        })
         .join("")}</div>`;
     }
     return `<a href="${esc(p.link)}" class="project-link" target="_blank" rel="noopener noreferrer">View writeup →</a>`;
+  };
+
+  // Renders the project's icon area: a single icon, an overlapping stack
+  // of icons for an app family (p.icons), or a letter placeholder.
+  // Each stacked icon falls back to its initial if the image 404s.
+  const projectIcon = (p) => {
+    if (p.icons && p.icons.length) {
+      return `<div class="project-icon-stack">${p.icons
+        .map(
+          (ic) => `
+          <div class="project-icon project-icon-stacked" title="${esc(ic.label)}">
+            <span class="project-icon-fallback">${esc(ic.label.charAt(0))}</span>
+            <img src="${esc(ic.src)}" alt="${esc(ic.label)} icon" loading="lazy" onerror="this.style.display='none'">
+          </div>`,
+        )
+        .join("")}</div>`;
+    }
+    if (p.icon) {
+      return `<img class="project-icon" src="${esc(p.icon)}" alt="${esc(p.title)} icon" loading="lazy">`;
+    }
+    return `<div class="project-icon project-icon-placeholder">${esc(p.title.charAt(0))}</div>`;
   };
 
   let projectCardCount = 0;
@@ -216,19 +256,20 @@
       <div class="project">
         <div>
           <div class="project-head">
-            ${
-              p.icon
-                ? `<img class="project-icon" src="${esc(p.icon)}" alt="${esc(p.title)} icon" loading="lazy">`
-                : `<div class="project-icon project-icon-placeholder">${esc(p.title.charAt(0))}</div>`
-            }
+            ${projectIcon(p)}
             <div class="project-head-text">
               <h3>${esc(p.title)}</h3>
-              <span class="status">${esc(p.status)}</span>
+              <span class="status${p.status && p.status.toLowerCase() === "inactive" ? " status-inactive" : ""}">${esc(p.status)}</span>
             </div>
           </div>
           ${
             p.availability
               ? `<div class="project-availability"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>${esc(p.availability)}</div>`
+              : ""
+          }
+          ${
+            p.contribution
+              ? `<div class="project-contribution"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>${esc(p.contribution)}</div>`
               : ""
           }
           <p class="project-desc" id="${descId}">${esc(p.description)}</p>
