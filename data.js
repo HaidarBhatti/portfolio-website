@@ -495,7 +495,7 @@ window.portfolioData = {
     // Where the contact form submits. Leave as null to just show an alert.
     // Set this to a Formspree endpoint (or similar) to actually receive messages:
     // formEndpoint: "https://formspree.io/f/yourFormId"
-    formEndpoint: null,
+    formEndpoint: "https://formspree.io/f/xnjeqnlp",
   },
 
   // ---------------- Footer ----------------
