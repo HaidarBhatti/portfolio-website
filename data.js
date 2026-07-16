@@ -321,7 +321,7 @@ window.portfolioData = {
       status: "Live",
       description:
         "EasyIslam is a free Islamic companion app offering the full Quran with Urdu & English translations, accurate prayer times with Azan alerts, Qibla compass, Tasbeeh counter, Duas, Zakat calculator, and a kids section with Islamic stories. Clean UI, no ads or subscriptions. Built to support daily worship and spiritual growth.",
-      availability: "Available in Pakistan",
+      availability: "Available worldwide",
       contribution: "Built from scratch",
       stack: ["Swift", "Firebase"],
       metrics: [
@@ -334,6 +334,30 @@ window.portfolioData = {
         {
           label: "iOS",
           href: "https://apps.apple.com/pk/app/easyislam-quran-namaz-app/id1613735799",
+          status: "live",
+        },
+      ],
+    },
+    {
+      type: "Company",
+      title: "Cardify: Greeting Cards",
+      icon: "assets/icons/cards.jpg",
+      status: "Live",
+      description:
+        "Cardify is a greeting card and e-invitation app offering a wide range of pre-made card styles, from playful to elegant. Users can create custom cards using their own photos with filters, then personalize them with messages for any occasion. Supports both traditional folded cards and flat two-sided card formats.",
+      availability: "Available worldwide",
+      contribution: "Built from scratch",
+      stack: ["Swift", "Firebase"],
+      metrics: [
+        { label: "Company", value: "Techificent, Lahore" },
+        { label: "Role", value: "iOS Developer" },
+        { label: "Category", value: "Graphics & Design" },
+        { label: "Language", value: "English" },
+      ],
+      links: [
+        {
+          label: "iOS",
+          href: "https://apps.apple.com/pk/app/cardify-greeting-cards/id1601084960",
           status: "live",
         },
       ],
