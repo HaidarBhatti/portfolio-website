@@ -468,7 +468,7 @@ window.portfolioData = {
       links: [
         {
           label: "iOS",
-          href: "https://apps.apple.com/pk/app/pakistan-cargo-services-app/id1613735799",
+          href: "https://apps.apple.com/us/app/pakistan-cargo/id1570119633",
           status: "live",
         },
       ],
