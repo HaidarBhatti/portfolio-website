@@ -6,7 +6,7 @@
     <title>Haidar Irfan — iOS Engineer & Founder</title>
     <meta
       name="description"
-      content="Haidar Irfan — Senior iOS engineer with 6 years of Swift experience and founder of Kabootar Bazi."
+      content="Haidar Irfan — Senior iOS engineer with 6 years of native iOS development in Swift and founder of Kabootar Bazi."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -213,7 +213,7 @@
       .pill.live::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--ok); }
       .app-card h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.25; }
       .app-card .meta { color: var(--muted); font-size: 14px; margin-top: 4px; }
-      .app-card .desc { color: var(--ink-2); font-size: 14.5px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+      .app-card .desc { color: var(--ink-2); font-size: 14.5px; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
       .app-card .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
       .app-card .foot .more { color: var(--ink); font-weight: 500; display: inline-flex; gap: 6px; align-items: center; }
       .app-card:hover .foot .more { color: var(--accent); }
@@ -273,7 +273,10 @@
       footer a:hover { color: var(--ink); }
 
       /* ---------- Dialogs ---------- */
-      dialog { border: 0; padding: 0; background: transparent; color: var(--ink); max-width: none; max-height: none; }
+      dialog { margin: auto; inset: 0; border: 0; padding: 0; background: transparent; color: var(--ink); max-width: none; max-height: none; }
+      dialog:focus, .sheet:focus { outline: none; }
+      body:has(dialog[open]) { overflow: hidden; }
+      .sheet .kv div:last-child:nth-child(odd) { grid-column: 1 / -1; }
       dialog::backdrop { background: rgba(10, 10, 10, 0.6); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
       .sheet { width: min(720px, calc(100vw - 32px)); max-height: calc(100vh - 48px); overflow: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 28px; padding: 36px; position: relative; }
       .sheet-close { position: absolute; top: 18px; right: 18px; }
@@ -444,7 +447,7 @@
           <div class="section-head reveal">
             <div>
               <span class="mono eyebrow">Experience</span>
-              <h2><span id="xp-years"></span> years, <em>one craft</em></h2>
+              <h2><span id="xp-years"></span> years of <em>native iOS</em></h2>
             </div>
             <p id="about-body"></p>
           </div>
@@ -524,6 +527,5 @@
 
     <script src="data.js"></script>
     <script src="render-v3.js"></script>
-    <script src="version-switcher.js"></script>
   </body>
 </html>

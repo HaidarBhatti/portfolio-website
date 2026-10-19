@@ -29,9 +29,12 @@ window.portfolioData = {
     headline: "I build iOS apps for a living —",
     headlineAccent: "and products of my own.",
     subtext:
-      "{{iosYears}} years shipping native Swift apps used across Saudi Arabia, the UK, the US and beyond. On the side, I founded Kabootar Bazi — a platform that turned pigeon-racing results from hours of hand math into instant, accurate rankings.",
+      "{{iosYears}} years of native iOS development in Swift — not cross-platform — shipping apps used across Saudi Arabia, the UK, the US and beyond. On the side, I founded Kabootar Bazi — a platform that turned pigeon-racing results from hours of hand math into instant, accurate rankings.",
     availability: "Open to senior iOS roles & product collaborations",
     location: "Pakistan · Working remotely",
+    // Intro next to the Toolkit heading.
+    skillsIntro:
+      "{{iosYears}} years of native iOS development in Swift, UIKit and SwiftUI — layered with Flutter, web and backend tools from building my own products end to end.",
     // Short paragraph next to the Experience heading.
     experienceIntro:
       "From an Android final-year project and Flutter freelancing to senior iOS roles for teams in Pakistan, Saudi Arabia and the US — while building my own products on the side.",

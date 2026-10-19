@@ -95,7 +95,7 @@
   const jobs = d.experience.filter((e) => !/final year/i.test(e.title));
   const ownProducts = d.projects.filter((p) => p.type === "Personal").length;
   const stats = [
-    { num: iosYears, sup: "+", lbl: "Years building native iOS" },
+    { num: iosYears, sup: "+", lbl: "Years of native iOS in Swift" },
     { num: appsShipped, sup: "", lbl: "Apps shipped to the stores" },
     { num: jobs.length, sup: "", lbl: "Product teams, onsite & remote" },
     { num: ownProducts, sup: "", lbl: "Products launched as a founder" },
@@ -237,8 +237,7 @@
     .join("");
 
   // ---------- Skills ----------
-  // This design counts iOS years, so year tokens here use iosYears.
-  $("skills-intro").innerHTML = esc(d.skillsSection.intro.replace(/\{\{(yearsInt|years)\}\}/g, iosYears));
+  $("skills-intro").innerHTML = t(pr.skillsIntro);
   $("skills-grid").innerHTML = d.skillsSection.categories
     .map(
       (c) => `
