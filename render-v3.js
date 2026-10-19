@@ -319,7 +319,7 @@
   $("contact-body").textContent = c.body;
   $("contact-mail").href = `mailto:${c.email}`;
   $("contact-mail").textContent = c.email;
-  $("contact-socials").innerHTML = [c.linkedin, c.github, c.x]
+  $("contact-socials").innerHTML = [c.whatsapp, c.linkedin, c.github, c.x]
     .filter(Boolean)
     .map((s) => `<a class="btn btn-ghost btn-sm" href="${esc(s.href)}" target="_blank" rel="noopener noreferrer">${esc(s.label)}</a>`)
     .join("");

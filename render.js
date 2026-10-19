@@ -333,6 +333,7 @@
   document.getElementById("contact-body").textContent = c.body;
   document.getElementById("contact-info").innerHTML = `
     <div class="row"><span class="k">Email</span><span class="v"><a href="mailto:${esc(c.email)}">${esc(c.email)}</a></span></div>
+    <div class="row"><span class="k">WhatsApp</span><span class="v"><a href="${esc(c.whatsapp.href)}" target="_blank" rel="noopener noreferrer">${esc(c.whatsapp.number)}</a></span></div>
     <div class="row"><span class="k">GitHub</span><span class="v"><a href="${esc(c.github.href)}" target="_blank" rel="noopener noreferrer">${esc(c.github.label)}</a></span></div>
     <div class="row"><span class="k">LinkedIn</span><span class="v"><a href="${esc(c.linkedin.href)}" target="_blank" rel="noopener noreferrer">${esc(c.linkedin.label)}</a></span></div>
     <div class="row"><span class="k">X</span><span class="v"><a href="${esc(c.x.href)}" target="_blank" rel="noopener noreferrer">${esc(c.x.label)}</a></span></div>

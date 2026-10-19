@@ -596,6 +596,11 @@ window.portfolioData = {
       href: "https://www.linkedin.com/in/haidar-irfan-a4b91a176/",
     },
     x: { label: "@HaidarBhattiDev", href: "https://x.com/HaidarBhattiDev" },
+    whatsapp: {
+      label: "WhatsApp",
+      number: "+92 327 1421420",
+      href: "https://wa.me/923271421420", // opens the WhatsApp app / web
+    },
     location: "Remote / Open to relocate",
     // Where the contact form submits. Leave as null to just show an alert.
     // Set this to a Formspree endpoint (or similar) to actually receive messages:
