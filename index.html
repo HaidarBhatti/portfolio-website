@@ -159,7 +159,9 @@
       .stat .lbl { color: var(--muted); font-size: 14px; margin-top: 10px; }
 
       .logos { padding: 40px 0 0; display: flex; gap: 14px 40px; align-items: center; flex-wrap: wrap; color: var(--muted); }
-      .logos .co { font-weight: 600; font-size: 17px; color: var(--ink-2); letter-spacing: -0.01em; }
+      .logos .co { font-weight: 600; font-size: 17px; color: var(--ink-2); letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 10px; }
+      .logos .co img, .logos .co-mark { width: 32px; height: 32px; border-radius: 9px; flex: none; object-fit: cover; box-shadow: 0 0 0 1px var(--line); }
+      .logos .co-mark { display: grid; place-items: center; background: var(--ink); color: var(--bg); font-family: var(--serif); font-style: italic; font-size: 16px; }
 
       /* ---------- Venture ---------- */
       .venture { background: #0f0f10; color: #f3f1ec; border-radius: 36px; margin: 0 16px; padding: 96px 0; position: relative; overflow: hidden; --line: rgba(255,255,255,0.1); --muted: #9b978f; }

@@ -148,6 +148,8 @@ window.portfolioData = {
   // ---------------- Work experience (renders as the "epoch timeline") ----------------
   // Ordered MOST RECENT FIRST — that's the order it displays in, top to bottom.
   // "current: true" adds an "epoch NN · current" tag to that entry.
+  // "logo" (optional) shows next to the company name in the "Shipped with"
+  // row; without one, a lettered badge is shown instead.
   experience: [
     {
       year: "Sep 2024 – Present",
@@ -155,6 +157,7 @@ window.portfolioData = {
       current: true,
       title: "Senior iOS Developer",
       company: "Circl Online · Remote (Riyadh-based team)",
+      logo: "assets/logos/circl.png",
       description:
         "Building and maintaining iOS features remotely for a team based in Riyadh, using Swift and SwiftUI. Collaborate closely with backend engineers to build and update APIs, and work with the UI/UX team to ship seamless, high-quality user experiences.",
       tags: ["Swift", "SwiftUI", "UIKit", "REST APIs"],
@@ -164,6 +167,7 @@ window.portfolioData = {
       epoch: "epoch 04",
       title: "iOS App Developer",
       company: "OnyxTec · Onsite, Lahore, Pakistan",
+      logo: "assets/logos/onyxtec.png",
       description:
         "Served as the sole iOS developer, designing, developing, and maintaining multiple iOS applications with Swift and UIKit — including building a news app from scratch. Worked closely with design, backend, and Android teams on shared APIs, and managed international clients directly from requirements through delivery.",
       tags: ["Swift", "UIKit", "API Integration", "Client management"],
@@ -173,6 +177,7 @@ window.portfolioData = {
       epoch: "epoch 03",
       title: "iOS App Developer",
       company: "Techificent · Onsite, Lahore, Pakistan",
+      logo: "assets/logos/techificent.svg",
       description:
         "Went deep on API implementations and the networking layer at Techificent, working alongside a strong team of senior iOS developers who sharpened how I structure and consume network code. That mentorship shaped habits — clean networking layers, careful error handling, API contracts done right — that I still carry into every project today.",
       tags: ["Swift", "UIKit", "API Integration", "Networking"],
@@ -182,6 +187,7 @@ window.portfolioData = {
       epoch: "epoch 02",
       title: "iOS Developer",
       company: "Mobizion · Onsite, Daska, Sialkot, Pakistan",
+      logo: "assets/logos/mobizion.png",
       description:
         "Joined as an iOS intern and was promoted to iOS developer after building my first professional apps with Swift, UIKit, and SwiftUI. Started with frontend/UI implementation and grew into building new apps from the ground up, earning a full-time offer based on performance.",
       tags: ["Swift", "UIKit", "SwiftUI"],

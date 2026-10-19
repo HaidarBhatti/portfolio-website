@@ -106,7 +106,15 @@
 
   $("logos").innerHTML =
     `<span class="mono">Shipped with</span>` +
-    jobs.map((e) => `<span class="co">${esc(e.company.split(" · ")[0])}</span>`).join("");
+    jobs
+      .map((e) => {
+        const name = e.company.split(" · ")[0];
+        const mark = e.logo
+          ? `<img src="${esc(e.logo)}" alt="" />`
+          : `<span class="co-mark">${esc(name[0])}</span>`;
+        return `<span class="co">${mark}${esc(name)}</span>`;
+      })
+      .join("");
 
   // ---------- Venture ----------
   const v = d.venture;
