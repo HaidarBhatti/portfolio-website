@@ -13,6 +13,82 @@ window.portfolioData = {
   // Format: "YYYY-MM-DD"
   config: {
     experienceStartDate: "2019-09-15",
+    // Used by the new design (index.html) for "{{iosYears}}" — the date
+    // you started professional iOS work (Mobizion internship).
+    iosStartDate: "2020-09-01",
+  },
+
+  // ================================================================
+  // NEW DESIGN (index.html) — everything below in this block is only
+  // used by the new "Engineer & Founder" design. The rest of the file
+  // (projects, experience, skills, contact…) is shared by all designs.
+  // Text supports {{iosYears}} (e.g. 6) and {{yearsInt}} tokens.
+  // ================================================================
+  profile: {
+    eyebrow: "Senior iOS Engineer · Founder",
+    headline: "I build iOS apps for a living —",
+    headlineAccent: "and products of my own.",
+    subtext:
+      "{{iosYears}} years shipping native Swift apps used across Saudi Arabia, the UK, the US and beyond. On the side, I founded Kabootar Bazi — a platform that turned pigeon-racing results from hours of hand math into instant, accurate rankings.",
+    availability: "Open to senior iOS roles & product collaborations",
+    location: "Pakistan · Working remotely",
+    // Short paragraph next to the Experience heading.
+    experienceIntro:
+      "From an Android final-year project and Flutter freelancing to senior iOS roles for teams in Pakistan, Saudi Arabia and the US — while building my own products on the side.",
+    // Your main photo, shown in the hero. Put the file in assets/photos/.
+    portrait: "assets/photos/portrait.jpg",
+    // Small iOS-style notifications floating over your portrait.
+    notifications: [
+      { app: "Kabootar Bazi", text: "Tournament results published", icon: "https://play-lh.googleusercontent.com/ht3XNKped-LapFQDJFJplUs0AoovP8V3Pc_UenT69uM5F7otWZlpvBpQaB4_L_lrye_EzkyCE1wKjwCI6sma-A=s256" },
+      { app: "App Store Connect", text: "Circl — new version is live", icon: "assets/icons/circlonline.png" },
+    ],
+  },
+
+  // ---------------- Founder / venture spotlight ----------------
+  venture: {
+    name: "Kabootar Bazi",
+    role: "Founder & sole engineer",
+    tagline: "Pigeon-racing results, finally done right.",
+    problem:
+      "Tournaments across South Asia and the Middle East rank hundreds of birds by flight hours — a slow, error-prone calculation traditionally done by hand.",
+    solution:
+      "Kabootar Bazi replaces it with instant, accurate results: organisers manage tournaments from an admin panel, and fans follow live rankings on the app and the web.",
+    // Headline numbers. Replace these with your real figures (users,
+    // tournaments, downloads…) — they're the first thing people read.
+    highlights: [
+      { value: "3", label: "Products shipped solo — app, admin, web" },
+      { value: "2", label: "Regions — South Asia & Middle East" },
+      { value: "0", label: "Hand calculations needed" },
+    ],
+    surfaces: [
+      { title: "Mobile app", stack: "Flutter · Firebase", text: "Live rankings, results and tournament entries in the user's own language." },
+      { title: "Admin panel", stack: "Flutter · Dart", text: "Organisers create tournaments, log flights and publish results in minutes." },
+      { title: "Results website", stack: "React · Firebase Hosting", text: "Public, shareable result pages for every tournament." },
+    ],
+    icon: "https://play-lh.googleusercontent.com/ht3XNKped-LapFQDJFJplUs0AoovP8V3Pc_UenT69uM5F7otWZlpvBpQaB4_L_lrye_EzkyCE1wKjwCI6sma-A=s256",
+    links: [
+      { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.haidar.pigeonapp", status: "live" },
+      { label: "Website", href: "https://kabootarbazi.web.app", status: "live" },
+      { label: "iOS", href: "#", status: "soon" },
+    ],
+    // Other products you've built as a founder (pulled by title from projects below).
+    alsoBuilt: ["Darzi Online"],
+  },
+
+  // ---------------- Photos ----------------
+  // Drop your images into assets/photos/ and list them here.
+  // size: "tall" | "wide" | "" (normal) — controls the tile shape.
+  photos: {
+    heading: "Behind the code",
+    intro: "Work, travel, events and the people along the way.",
+    items: [
+      { src: "assets/photos/photo-1.jpg", caption: "At my desk", size: "tall" },
+      { src: "assets/photos/photo-2.jpg", caption: "Team day", size: "" },
+      { src: "assets/photos/photo-3.jpg", caption: "Speaking / event", size: "wide" },
+      { src: "assets/photos/photo-4.jpg", caption: "Travel", size: "" },
+      { src: "assets/photos/photo-5.jpg", caption: "Kabootar Bazi launch", size: "tall" },
+      { src: "assets/photos/photo-6.jpg", caption: "Off the clock", size: "" },
+    ],
   },
 
   // ---------------- Identity / nav ----------------

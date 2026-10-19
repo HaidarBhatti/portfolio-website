@@ -10,8 +10,17 @@
 (function () {
   var VERSIONS = [
     {
-      id: "v1",
+      id: "v3",
       href: "index.html",
+      label: "Engineer & Founder",
+      tag: "Editorial / Current",
+      desc: "Clean editorial build — founder spotlight, app showcase, photo gallery, light & dark themes.",
+      accent: "#f05138",
+      accent2: "#141414",
+    },
+    {
+      id: "v1",
+      href: "v1.html",
       label: "Template One",
       tag: "Terminal / Dev",
       desc: "Dark terminal-inspired build — command-line hero, epoch timeline, monospace data readouts.",
