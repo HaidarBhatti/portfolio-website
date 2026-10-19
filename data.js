@@ -82,6 +82,8 @@ window.portfolioData = {
   // Drop your images into assets/photos/ and list them here.
   // size: "tall" | "wide" | "" (normal) — controls the tile shape.
   photos: {
+    // Set to true to show the gallery (and its nav link) on the site.
+    show: false,
     heading: "Behind the code",
     intro: "Work, travel, events and the people along the way.",
     items: [

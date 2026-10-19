@@ -251,6 +251,10 @@
 
   // ---------- Photos ----------
   const ph = d.photos;
+  if (ph.show === false) {
+    $("photos").hidden = true;
+    document.querySelectorAll('a[href="#photos"]').forEach((a) => (a.hidden = true));
+  }
   $("photos-h2").innerHTML = esc(ph.heading).replace(/(\S+)$/, "<em>$1</em>");
   $("photos-intro").textContent = ph.intro;
   const photosGrid = $("photos-grid");
