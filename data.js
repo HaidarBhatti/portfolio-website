@@ -235,12 +235,13 @@ window.portfolioData = {
       },
       {
         label: "Backend",
-        title: "Firebase & services",
+        title: "Firebase, Supabase & services",
         items: [
           "Firebase Auth",
           "Firestore",
           "Cloud Functions",
           "Firebase Hosting",
+          "Supabase",
           "Push notifications",
         ],
       },
@@ -264,6 +265,7 @@ window.portfolioData = {
           "Agile / Scrum",
           "Cross-functional collaboration",
           "Mentoring",
+          "AI-assisted coding (Claude Code, ChatGPT)",
         ],
       },
     ],
